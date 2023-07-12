@@ -11,7 +11,7 @@ import (
 // RenderTemplate renders templates using html/template
 func RenderTemplate(w http.ResponseWriter, tmpl string) {
 	// create a template cache
-	tc, err := createTemplateCache()
+	tc, err := CreateTemplateCache()
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -81,7 +81,7 @@ func createTemplateCache(t string) error {
 
 */
 
-func createTemplateCache() (map[string]*template.Template, error) {
+func CreateTemplateCache() (map[string]*template.Template, error) {
 	tc := map[string]*template.Template{}
 
 	// get all the files name *.page.tmpl from "./templates"
