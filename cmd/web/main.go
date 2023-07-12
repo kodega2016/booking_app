@@ -23,9 +23,14 @@ func main() {
 	}
 
 	app.TemplateCache = tc
+	app.UseCache = false
+	render.NewTemplates(&app)
 
-	http.HandleFunc("/", handlers.Home)
-	http.HandleFunc("/about", handlers.About)
+	repo := handlers.NewRepo(&app)
+	handlers.NewHandlers(repo)
+
+	http.HandleFunc("/", handlers.Repo.Home)
+	http.HandleFunc("/about", handlers.Repo.About)
 
 	log.Println(fmt.Sprintf("web server is running on %s", port))
 	http.ListenAndServe(port, nil)
