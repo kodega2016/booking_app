@@ -29,9 +29,16 @@ func main() {
 	repo := handlers.NewRepo(&app)
 	handlers.NewHandlers(repo)
 
-	http.HandleFunc("/", handlers.Repo.Home)
-	http.HandleFunc("/about", handlers.Repo.About)
+	// http.HandleFunc("/", handlers.Repo.Home)
+	// http.HandleFunc("/about", handlers.Repo.About)
+
+	srv := &http.Server{
+		Addr:    port,
+		Handler: routes(&app),
+	}
 
 	log.Println(fmt.Sprintf("web server is running on %s", port))
-	http.ListenAndServe(port, nil)
+	// http.ListenAndServe(port, nil)
+	err = srv.ListenAndServe()
+	log.Fatal(err)
 }
