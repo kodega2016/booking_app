@@ -21,6 +21,9 @@ func routes(app *config.AppConfig) http.Handler {
 	// use no surf
 	mux.Use(NoSurf)
 
+	// use load session load
+	mux.Use(SessionLoad)
+
 	mux.HandleFunc("/", handlers.Repo.Home)
 	mux.HandleFunc("/about", handlers.Repo.About)
 	return mux
