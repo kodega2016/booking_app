@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"fmt"
+	"encoding/json"
 	"log"
 	"net/http"
 
@@ -80,10 +80,42 @@ func (m *Repository) PostSearchAvailabilty(w http.ResponseWriter, r *http.Reques
 	log.Println("start date is", start)
 	log.Println("end date is", end)
 
-	w.Write([]byte(fmt.Sprintf("start date is %s and end date is %s", start, end)))
+	res := jsonResponse{
+		OK:      true,
+		Message: "searched availability",
+	}
+
+	out, err := json.MarshalIndent(res, "", "     ")
+	if err != nil {
+		log.Println(err)
+	}
+
+	w.Write(out)
+
 }
 
 // Contact renders the make a contact page
 func (m *Repository) Contact(w http.ResponseWriter, r *http.Request) {
 	render.RenderTemplate(w, r, "contact.page.tmpl", &models.TemplateData{})
+}
+
+// AvailabilityJSON handles request for availability and send JSON response
+func (m *Repository) AvailabilityJSON(w http.ResponseWriter, r *http.Request) {
+	resp := jsonResponse{
+		OK:      true,
+		Message: "available",
+	}
+
+	out, err := json.MarshalIndent(resp, "", "     ")
+	if err != nil {
+		log.Println(err)
+	}
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(out)
+}
+
+// jsonResponse is a generic data structure to send response
+type jsonResponse struct {
+	OK      bool   `json:"ok"`
+	Message string `json:"message"`
 }
