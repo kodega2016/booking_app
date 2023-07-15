@@ -30,5 +30,10 @@ func routes(app *config.AppConfig) http.Handler {
 
 	mux.HandleFunc("/", handlers.Repo.Home)
 	mux.HandleFunc("/about", handlers.Repo.About)
+	mux.HandleFunc("/make-reservation", handlers.Repo.Reservation)
+	mux.HandleFunc("/generals-quarters", handlers.Repo.Generals)
+	mux.HandleFunc("/majors-suite", handlers.Repo.Majors)
+	mux.HandleFunc("/search-availability", handlers.Repo.SearchAvailabilty)
+	mux.HandleFunc("/contact", handlers.Repo.Contact)
 	return mux
 }
