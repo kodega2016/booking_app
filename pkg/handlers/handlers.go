@@ -106,7 +106,7 @@ func (m *Repository) AvailabilityJSON(w http.ResponseWriter, r *http.Request) {
 		Message: "available",
 	}
 
-	out, err := json.MarshalIndent(resp, "", "     ")
+	out, err := json.MarshalIndent(resp, "", "\t")
 	if err != nil {
 		log.Println(err)
 	}
