@@ -1,12 +1,12 @@
 package main
 
 import (
+	"github.com/kodega2016/booking-app/internal/config"
+	"github.com/kodega2016/booking-app/internal/handlers"
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
-	"github.com/kodega2016/booking-app/pkg/config"
-	"github.com/kodega2016/booking-app/pkg/handlers"
 )
 
 func routes(app *config.AppConfig) http.Handler {

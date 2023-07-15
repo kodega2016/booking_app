@@ -2,14 +2,14 @@ package main
 
 import (
 	"fmt"
+	"github.com/kodega2016/booking-app/internal/config"
+	"github.com/kodega2016/booking-app/internal/handlers"
+	"github.com/kodega2016/booking-app/internal/render"
 	"log"
 	"net/http"
 	"time"
 
 	"github.com/alexedwards/scs/v2"
-	"github.com/kodega2016/booking-app/pkg/config"
-	"github.com/kodega2016/booking-app/pkg/handlers"
-	"github.com/kodega2016/booking-app/pkg/render"
 )
 
 // port for the application

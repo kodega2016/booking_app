@@ -2,12 +2,11 @@ package handlers
 
 import (
 	"encoding/json"
+	"github.com/kodega2016/booking-app/internal/config"
+	"github.com/kodega2016/booking-app/internal/models"
+	"github.com/kodega2016/booking-app/internal/render"
 	"log"
 	"net/http"
-
-	"github.com/kodega2016/booking-app/pkg/config"
-	"github.com/kodega2016/booking-app/pkg/models"
-	"github.com/kodega2016/booking-app/pkg/render"
 )
 
 // Repo is the repository used by the handlers
