@@ -3,10 +3,8 @@
 {{define "content"}}
 <div class="container">
   <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
+    <div class="col-md-12">
       <h1 class="mt-3">Search for Availability</h1>
-
       <form
         action="reservation.html"
         method="post"
@@ -41,32 +39,24 @@
 
         <hr />
 
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" class="btn btn-success">
           Search Availability
         </button>
       </form>
     </div>
-    <div class="col-md-3"></div>
   </div>
 
   <div class="row">
-    <div class="col">
-      <p id="myParagraph">This is some text.</p>
-      <p class="paraClass secondClass">This is some text.</p>
-      <p class="paraClass">This is some text.</p>
-      <p id="lastPara">This is some text.</p>
-      <p>
-        <button id="colorButton" class="btn btn-outline-secondary">
-          Click me
-        </button>
-      </p>
-    </div>
+    <div class="col"></div>
   </div>
 </div>
 {{ end }}
 
 {{define "js"}}
 <script>
-  console.log("this is just a test");
+  const elem = document.getElementById("reservation-dates");
+  const rangePicker = new DateRangePicker(elem, {
+    format: "yyyy-mm-dd",
+  });
 </script>
 {{ end }}
